@@ -38,3 +38,12 @@ springdoc:
     title: Product Catalog API
     description: API documentation for the Product Catalog service
     version: 1.0.0
+
+rate:
+  limiting:
+    requests:
+      per:
+        minute: 10
+    refill:
+      duration: 1m
+      amount: 10

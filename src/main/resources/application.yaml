@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:productcatalog
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+  cache:
+    cache-names:
+      - products
+      - productsByCategory
+    caffeine:
+      spec: maximumSize=500,expireAfterWrite=10m
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          DEBUG
+      apache:
+        catalina:
+          DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  info:
+    title: Product Catalog API
+    description: API documentation for the Product Catalog service
+    version: 1.0.0

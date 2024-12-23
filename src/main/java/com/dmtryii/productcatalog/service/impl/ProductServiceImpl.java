@@ -1,7 +1,7 @@
 package com.dmtryii.productcatalog.service.impl;
 
 import com.dmtryii.productcatalog.entity.Product;
-import com.dmtryii.productcatalog.exceptions.ProductNotFoundException;
+import com.dmtryii.productcatalog.exceptions.EntityNotFoundException;
 import com.dmtryii.productcatalog.repository.ProductRepository;
 import com.dmtryii.productcatalog.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product getById(Long id) {
         return productRepository.findById(id).orElseThrow(
-                () -> new ProductNotFoundException("Product not found by id " + id)
+                () -> new EntityNotFoundException("Product not found by id " + id)
         );
     }
 

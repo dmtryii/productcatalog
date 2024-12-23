@@ -1,7 +1,7 @@
 package com.dmtryii.productcatalog;
 
 import com.dmtryii.productcatalog.entity.Product;
-import com.dmtryii.productcatalog.exceptions.ProductNotFoundException;
+import com.dmtryii.productcatalog.exceptions.EntityNotFoundException;
 import com.dmtryii.productcatalog.repository.ProductRepository;
 import com.dmtryii.productcatalog.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,8 +55,8 @@ public class ProductServiceBaseLogicTest {
     public void testGetById_ProductNotFound() {
         when(productRepository.findById(1L)).thenReturn(Optional.empty());
 
-        ProductNotFoundException exception = assertThrows(
-                ProductNotFoundException.class,
+        EntityNotFoundException exception = assertThrows(
+                EntityNotFoundException.class,
                 () -> productService.getById(1L)
         );
         assertEquals("Product not found by id 1", exception.getMessage());

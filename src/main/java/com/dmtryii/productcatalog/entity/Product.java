@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @EqualsAndHashCode(exclude = "id")
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(
